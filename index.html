@@ -5,20 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Doe - CV</title>
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --heading-color: #2c3e50;
+            --skill-bg: #e0e0e0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #2c3e50;
+                --text-color: #ecf0f1;
+                --heading-color: #3498db;
+                --skill-bg: #34495e;
+            }
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--bg-color);
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
         header {
             text-align: center;
             margin-bottom: 30px;
         }
         h1, h2, h3 {
-            color: #2c3e50;
+            color: var(--heading-color);
         }
         section {
             margin-bottom: 30px;
@@ -29,7 +47,7 @@
         }
         .skill-item {
             display: inline-block;
-            background-color: #e0e0e0;
+            background-color: var(--skill-bg);
             padding: 5px 10px;
             margin: 5px;
             border-radius: 5px;
@@ -46,28 +64,15 @@
             top: 20px;
             right: 20px;
             padding: 10px;
-            background-color: #2c3e50;
-            color: white;
+            background-color: var(--heading-color);
+            color: var(--bg-color);
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-        body.dark-mode {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-        }
-        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
-            color: #3498db;
-        }
-        body.dark-mode .skill-item {
-            background-color: #34495e;
-            color: #ecf0f1;
-        }
     </style>
 </head>
-<body>
-    <button id="theme-toggle">Toggle Dark Mode</button>
-    
+<body> 
     <header>
         <h1>John Doe</h1>
         <p>Full Stack Developer</p>
@@ -117,8 +122,34 @@
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+        function setTheme(theme) {
+            document.body.classList.remove("light-mode", "dark-mode");
+            document.body.classList.add(theme + "-mode");
+            localStorage.setItem("theme", theme);
+        }
+
+        // Check for saved theme preference or use the system preference
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            setTheme(prefersDarkScheme.matches ? "dark" : "light");
+        }
+
+        // Theme toggle button
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            setTheme(newTheme);
+        });
+
+        // Listen for system theme changes
+        prefersDarkScheme.addListener((e) => {
+            if (!localStorage.getItem("theme")) {
+                setTheme(e.matches ? "dark" : "light");
+            }
         });
     </script>
 </body>
