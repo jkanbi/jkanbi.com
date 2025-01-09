@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skill-item {
+            display: inline-block;
+            background-color: #e0e0e0;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .job-title {
+            font-weight: bold;
+        }
+        .job-period {
+            font-style: italic;
+            color: #666;
+        }
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        body.dark-mode {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+            color: #3498db;
+        }
+        body.dark-mode .skill-item {
+            background-color: #34495e;
+            color: #ecf0f1;
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle">Toggle Dark Mode</button>
+    
+    <header>
+        <h1>John Doe</h1>
+        <p>Full Stack Developer</p>
+    </header>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: john.doe@email.com</p>
+        <p>Phone: +1 (123) 456-7890</p>
+        <p>Location: New York, NY</p>
+    </section>
+    
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li class="skill-item">JavaScript</li>
+            <li class="skill-item">HTML</li>
+            <li class="skill-item">CSS</li>
+            <li class="skill-item">Node.js</li>
+            <li class="skill-item">Python</li>
+            <li class="skill-item">SQL</li>
+            <li class="skill-item">Git</li>
+        </ul>
+    </section>
+    
+    <section id="experience">
+        <h2>Experience</h2>
+        <div>
+            <h3 class="job-title">Senior Developer at Tech Solutions Inc.</h3>
+            <p class="job-period">Jan 2020 - Present</p>
+            <p>Lead development of web applications using various technologies.</p>
+        </div>
+        <div>
+            <h3 class="job-title">Web Developer at Digital Innovations LLC</h3>
+            <p class="job-period">Jun 2017 - Dec 2019</p>
+            <p>Developed and maintained client websites using various web technologies.</p>
+        </div>
+    </section>
+    
+    <section id="education">
+        <h2>Education</h2>
+        <div>
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p>University of Technology, 2017</p>
+        </div>
+    </section>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
