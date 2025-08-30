@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - CV</title>
+    <title>Jayesh Kanbi - Profile</title>
     <style>
         :root {
             --bg-color: #ffffff;
             --text-color: #333333;
-            --heading-color: #2c3e50;
-            --skill-bg: #e0e0e0;
+            --heading-color: #000000;
+            --skill-bg: #f5f5f5;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-color: #2c3e50;
-                --text-color: #ecf0f1;
-                --heading-color: #3498db;
-                --skill-bg: #34495e;
+                --bg-color: #1a1a1a;
+                --text-color: #ffffff;
+                --heading-color: #ffffff;
+                --skill-bg: #333333;
             }
         }
 
@@ -35,11 +35,66 @@
             text-align: center;
             margin-bottom: 30px;
         }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid var(--heading-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
         h1, h2, h3 {
             color: var(--heading-color);
         }
         section {
             margin-bottom: 30px;
+        }
+        section > div,
+        section > ul,
+        section > p {
+            margin-left: 20px !important;
+        }
+        section > div > h3,
+        section > div > p {
+            margin-left: 0 !important;
+        }
+        .skills-list {
+            margin-left: 20px !important;
+        }
+        #contact {
+            margin-bottom: 50px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--bg-color);
+        }
+        .youtube-link {
+            background-color: #ff0000;
+        }
+        .youtube-link svg {
+            fill: #ffffff;
         }
         .skills-list {
             list-style-type: none;
@@ -74,19 +129,37 @@
 </head>
 <body> 
     <header>
-        <h1>John Doe</h1>
-        <p>Full Stack Developer</p>
+        <img src="profile-image.jpeg" alt="Profile Photo" class="profile-image">
+        <h1>Jayesh Kanbi</h1>
+        <p>Technology & Construction Industry Professional</p>
     </header>
+    
+    <div class="social-links">
+        <a href="https://x.com/jkanbi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow on X (Twitter)">
+            <svg viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+        </a>
+        <a href="https://youtube.com/@jkanbi" target="_blank" rel="noopener noreferrer" class="social-link youtube-link" aria-label="Subscribe on YouTube">
+            <svg viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+        </a>
+    </div>
+    
+    <section id="bio">
+        <h2>About Me</h2>
+        <p>I'm a true jack of all trades and master of some, with a unique blend of skills spanning technology and construction. My journey began in 1990 when the internet was first growing, and I've been riding that wave of technological evolution ever since. In the technology realm, I've witnessed and worked with the entire evolution of the web - from dial-up modems to modern cloud architectures. On the construction side, I've been in the HVAC industry for over 20 years, specializing in HVAC systems and renewable energy solutions, understanding the complex interplay between mechanical systems, energy efficiency, and sustainable building practices. My diverse background allows me to bridge the gap between digital innovation and physical infrastructure, finding creative solutions that leverage technology to improve construction processes and outcomes.</p>
+    </section>
     
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: john.doe@email.com</p>
-        <p>Phone: +1 (123) 456-7890</p>
-        <p>Location: New York, NY</p>
+        <p>Email: hello@jkanbi.com</p>
+        <p>Location: London, UK</p>
     </section>
     
-    <section id="skills">
-        <h2>Skills</h2>
+    <section id="technology-skills">
+        <h2>Technology Skills</h2>
         <ul class="skills-list">
             <li class="skill-item">JavaScript</li>
             <li class="skill-item">HTML</li>
@@ -95,28 +168,44 @@
             <li class="skill-item">Python</li>
             <li class="skill-item">SQL</li>
             <li class="skill-item">Git</li>
+            <li class="skill-item">Cloud Architecture</li>
+            <li class="skill-item">Web Development</li>
+            <li class="skill-item">System Design</li>
+            <li class="skill-item">AI</li>
+            <li class="skill-item">AI Code Development</li>
+            <li class="skill-item">IoT Hardware</li>
+            <li class="skill-item">Technical Integration</li>
         </ul>
     </section>
     
-    <section id="experience">
-        <h2>Experience</h2>
+    <section id="construction-skills">
+        <h2>Construction & Energy Skills</h2>
+        <ul class="skills-list">
+            <li class="skill-item">HVAC Systems</li>
+            <li class="skill-item">Renewable Energy</li>
+            <li class="skill-item">Energy Efficiency</li>
+            <li class="skill-item">Solar Power</li>
+            <li class="skill-item">Mechanical Systems</li>
+            <li class="skill-item">Sustainable Building</li>
+            <li class="skill-item">Low Energy Homes</li>
+            <li class="skill-item">Project Management</li>
+        </ul>
+    </section>
+    
+
+    
+    <section id="vocational-qualifications">
+        <h2>Vocational Qualifications</h2>
         <div>
-            <h3 class="job-title">Senior Developer at Tech Solutions Inc.</h3>
-            <p class="job-period">Jan 2020 - Present</p>
-            <p>Lead development of web applications using various technologies.</p>
-        </div>
-        <div>
-            <h3 class="job-title">Web Developer at Digital Innovations LLC</h3>
-            <p class="job-period">Jun 2017 - Dec 2019</p>
-            <p>Developed and maintained client websites using various web technologies.</p>
+            <p>Domestic / Residential Natural Gas</p>
+            <p>Heat Pumps and Low Temperature Systems and Design</p>
         </div>
     </section>
     
     <section id="education">
         <h2>Education</h2>
         <div>
-            <h3>Bachelor of Science in Computer Science</h3>
-            <p>University of Technology, 2017</p>
+            <p>Brunel University, 2001 - Certificate of Higher Education in Computer Science</p>
         </div>
     </section>
 
